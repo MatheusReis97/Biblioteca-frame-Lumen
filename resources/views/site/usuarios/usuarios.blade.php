@@ -20,6 +20,7 @@
     <h2>Bem vindo a Biblioteca</h2>
 
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#AdicionarNovo">Adicionar Novo</button>
+    <a href="livros"><button type="button" class="btn btn-dark">livros</button></a>
     <table class="table table-dark table-bordered">
         <thead>
             <tr>

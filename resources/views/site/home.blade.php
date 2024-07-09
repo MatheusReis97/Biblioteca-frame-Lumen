@@ -2,13 +2,13 @@
 @section('content')
 <style>
   body{
-    background-image: url(https://s2.glbimg.com/p71lnqMrToEIc_3v8TPC8-qLcnw=/e.glbimg.com/og/ed/f/original/2016/03/28/trinity-college-1.jpg);
+    background-image: url(https://images.alphacoders.com/133/thumb-1920-1339726.png);
     background-repeat: no-repeat;
     background-size: cover;
   }
 </style>
 <div class="container" style="background-color: white; margin-top: 40px">
-  <h2>{{$name}}</h2><br>
+  <!-- <h2>{{$name}}</h2><br> -->
 
 <form action="/login-submit" method="POST">
   <div class="mb-3">
@@ -19,9 +19,15 @@
     <label for="exampleInputPassword1" class="form-label">Senha</label>
     <input type="password" class="form-control" name="senha" id="senha" required>
   </div>
-  
+  <div>
+    <a href="">esquece a senha ?</a>
+  </div><br>
   <button type="submit" class="btn btn-primary">Entrar</button>
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas" aria-label="Close">Voltar</button>  
 </form>
+ <br>
 
+<a href="">Criar conta</a>
 </div>
+
 @endsection

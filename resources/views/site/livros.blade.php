@@ -17,9 +17,11 @@
    </style> 
    
 <div class="container">
-    <h2>Bem vindo a Biblioteca</h2>
+    <h2 style="color:white; text-align: center;">Bem vindo a Biblioteca</h2>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AdicionarNovo">Novo livro</button>
     <a href="usuarios"><button type="button" class="btn btn-dark">Usuarios</button></a>
+
+    
 
     <table class="table table-primary table-bordered">
         <thead>
