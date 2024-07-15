@@ -11,7 +11,7 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 /*
 |--------------------------------------------------------------------------
 | Create The Application
-|--------------------------------------------------------------------------
+|-------------------------------------------------------------------------- 
 |
 | Here we will load the environment and create the application instance
 | that serves as the central piece of this framework. We'll use this
@@ -93,6 +93,8 @@ $app->middleware([
 ]);
 
 
+
+
 $app->middleware([
     App\Http\Middleware\ExampleMiddleware::class
 ]);
@@ -121,6 +123,7 @@ $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
