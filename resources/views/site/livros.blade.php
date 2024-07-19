@@ -140,7 +140,27 @@
     </div>
   </div>
 </div>
+<script>
 
+// Evento que dispara a busca de livros
+document.getElementById('btnBuscarLivros').addEventListener('click', function() {
+    fetch('http://localhost:8000/livros', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + SEU_TOKEN_JWT,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Aqui você pode manipular os dados recebidos, exibir na tela, etc.
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+});
+</script>
 
 
 </body>

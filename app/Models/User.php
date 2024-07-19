@@ -8,8 +8,12 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Support\Facades\Schema;
 
-class User extends Model implements AuthenticatableContract, AuthorizableContract
+
+
+class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
     use Authenticatable, Authorizable, HasFactory;
 
@@ -41,7 +45,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     // protected $keyType = 'int';
 
     // Se a tabela não tiver os campos timestamps (created_at e updated_at)
-
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
     
     public function emprestimo()
     {
@@ -54,6 +61,20 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
   
+    public function getAuthPassword()
+    {
+        return $this->password_user;
+    }
+    
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+    
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     public $timestamps = true;
 

@@ -96,11 +96,18 @@ $app->middleware([
 
 
 $app->middleware([
-    App\Http\Middleware\ExampleMiddleware::class
+
+
+ 
 ]);
 
 $app->routeMiddleware([
+    
     'auth' => App\Http\Middleware\Authenticate::class,
+    'jwt.auth' => Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+    'jwt.refresh' => Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
+    'api' => App\Http\Middleware\ApiMiddleware::class,
+   
 ]);
 
 /*
@@ -123,7 +130,14 @@ $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+// JWT  
+$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
+$app->configure('jwt');
+
+
+//AUTH 
+$app->configure('auth');    
 
 /*
 |--------------------------------------------------------------------------

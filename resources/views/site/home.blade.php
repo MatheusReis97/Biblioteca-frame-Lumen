@@ -27,11 +27,11 @@
   
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
+    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" value="admin@hotmail.com" required>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Senha</label>
-    <input type="password" class="form-control" name="senha" id="senha" required>
+    <input type="password" class="form-control" name="senha" id="senha" value="admin" required>
   
   </div>
   <div>

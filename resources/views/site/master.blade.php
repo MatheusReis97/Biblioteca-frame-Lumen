@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="javascript" href="../js/main.js">
+    
 </head>   
     <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -178,6 +178,37 @@
                 offcanvas.show(); // Mostrar Offcanvas se houver mensagens de erro
             }
         });
+
+        async function login(event) {
+            event.preventDefault();
+
+            // Coletar as credenciais de login do formulário
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Enviar uma requisição POST para o servidor com as credenciais
+            const response = await fetch('/login-submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, senha })
+            });
+
+            // Processar a resposta do servidor
+            const data = await response.json();
+
+            if (data.success) {
+                // Se o login for bem-sucedido, armazenar o token no localStorage
+                localStorage.setItem('jwt_token', data.token);
+
+                // Redirecionar para a página de livros
+                window.location.href = '/livros';
+            } else {
+                // Se o login falhar, exibir a mensagem de erro
+                alert('Login falhou: ' + data.error.join(', '));
+            }
+        }
 </script>
 
 </body>
